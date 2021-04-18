@@ -1,0 +1,20 @@
+@mixin dark {
+  background-color: black;
+  color: white;
+  a {
+    color: yellow;
+  }
+}
+
+@mixin light {
+  background-color: white;
+  color: black;
+}
+body {
+  @include light;
+  transition: all 1s ease;
+}
+
+body.dark {
+  @include dark;
+}
