@@ -10,30 +10,12 @@
   --color-accent: #12cdea;
   --font-color: #ffffff;
 }
-.container {
-  display: flex;
-  background: var(--color-secondary);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.container h1 {
-  color: var(--font-color);
-  font-family: sans-serif;
-}
-.container button {
-  color: var(--font-color);
-  background: var(--color-primary);
-  padding: 10px 20px;
-  border: 0;
-  border-radius: 5px;
-}
 /* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 50px;
+  height: 24px;
 }
 
 /* Hide default HTML checkbox */
@@ -59,8 +41,8 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   left: 0px;
   bottom: 4px;
   top: 0;

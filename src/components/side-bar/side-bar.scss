@@ -1,0 +1,77 @@
+.side-bar {
+  flex: 1 1 30%;
+  border-right: 1px solid;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-start;
+  .container {
+    width: 100%;
+    height: 100%;
+    .avatar-wrapper {
+      width: 100%;
+      .avatar {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        border-radius: 50%;
+      }
+    }
+    .author {
+      width: 100%;
+      padding-left: 8px;
+      font-size: 0.8rem;
+    }
+    .description {
+      width: 100%;
+      color: gray;
+      padding-left: 8px;
+      font-size: 0.8rem;
+    }
+    .menu {
+      width: 100%;
+      margin-top: 0.6rem;
+      padding-left: 8px;
+      ul {
+        margin: 0;
+        list-style-type: none;
+        li {margin:0;}
+      }
+      .item {
+        font-size: 0.8rem;
+      }
+    }
+    .contact {
+      width: 100%;
+      margin-top: 1rem;
+      .contact__list {
+        margin: 0;
+        display: flex;
+        .contact__item {
+          width: 2rem;
+          display: flex;
+          justify-content: center;
+          flex-flow: row wrap;
+          list-style-type: none;
+          .contact__item__link {
+            width: 1.4rem;
+            height: 1.4rem;
+            border: 1px solid rgb(189, 189, 189);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .contact__item__img {
+            width: 0.7rem;
+            height: 0.7rem;
+          }
+        }
+      }
+    }
+    .reserved {
+      width: 100%;
+      color: gray;
+      font-size: 0.8rem;
+    }
+  }
+}

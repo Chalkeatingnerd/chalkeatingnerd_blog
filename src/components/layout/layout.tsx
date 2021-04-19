@@ -18,9 +18,9 @@ const Layout = ({ children }) => {
     <>
       <main style={{
         margin: `0 auto`,
-        maxWidth: '66rem',
+        maxWidth: '50rem',
         minHeight: '100vh',
-        padding: `0 1.0875rem 1.45rem`}}>
+        paddingTop: '2rem'}}>
         {children}
       </main>
     </>

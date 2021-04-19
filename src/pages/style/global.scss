@@ -1,18 +1,41 @@
 @mixin dark {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
+  border-color: white;
   a {
-    color: yellow;
+    color: white;
+  }
+  svg {
+    fill: white;
   }
 }
 
 @mixin light {
   background-color: white;
   color: black;
+  border-right-color: rgb(184, 184, 184);
+  a {color: black;}
+  svg {fill: black;}
+  .box {
+    background-color: black;
+    color: white;
+  }
 }
 body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  height: 100%;
   @include light;
-  transition: all 1s ease;
+  transition: color 1s ease;
+  transition: background-color 1s ease;
+  a {text-decoration: none;}
+  a.active {text-decoration: underline;}
+  .box {
+    background-color: white;
+    color: black;
+  }
 }
 
 body.dark {
