@@ -7,7 +7,7 @@ import '../style/global.scss';
 import './index-page.scss';
 import Content from '../../components/content';
 
-const IndexPage = () => (
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title="duck blog" />
     <div className="index">

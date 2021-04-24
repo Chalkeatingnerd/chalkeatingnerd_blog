@@ -1,8 +1,11 @@
 import React from 'react';
 import DarkModeToggler from '../dark-mode-theme';
+import { graphql } from 'gatsby';
 import './content.scss';
 
-const Content = () => {
+const Content = ({data}) => {
+  const { markdownRemark } = data;
+  const { frontmatter, html } = markdownRemark
   const createBox = () => {
     return (
       <div className="content__box box">
@@ -30,10 +33,34 @@ const Content = () => {
         {createBox()}
         {createBox()}
         {createBox()}
-        {createBox()}
+      </div>
+      <div className="content__nav">
+        <div className="content__nav-prev">
+          <div className="content__nav-button">
+            {'< previous'} 
+          </div>
+        </div>
+        <div className="content__nav-next">
+          <div className="content__nav-button">
+            {'next >'}
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
 export default Content;
+
+export const pageQuery = graphql`
+  query($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        slug
+        title
+      }
+    }
+  }
+`

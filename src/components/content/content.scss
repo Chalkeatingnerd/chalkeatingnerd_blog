@@ -39,4 +39,23 @@
       }
     }
   }
+  .content__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 3rem;
+    .content__nav-prev {
+      color:rgb(169, 169, 169);
+      fill: rgb(169, 169, 169);
+    }
+    .content__nav-next {
+      color:rgb(164, 112, 21);
+      fill: rgb(164, 112, 21);
+    }
+    .content__nav-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
