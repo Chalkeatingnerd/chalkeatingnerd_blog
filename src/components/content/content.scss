@@ -17,6 +17,8 @@
       min-height: 120px;
       margin-bottom: 0.2rem;
       padding: 0.6rem 1rem;
+      cursor: pointer;
+      &:hover {background-color: rgb(240, 240, 240);}
       .content__box-date {
         font-size: 0.8rem;
       }
