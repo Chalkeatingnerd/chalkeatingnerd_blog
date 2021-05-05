@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import DarkModeToggler from '../dark-mode-theme';
 import { graphql, useStaticQuery } from 'gatsby';
 import './content.scss';
@@ -21,9 +21,9 @@ const postListQuery = graphql`
       }
     }
   }
-`
+`;
 
-const Content = () => {
+const Content = ({location}) => {
   const data = useStaticQuery(postListQuery);
   const { allMarkdownRemark } = data;
   const { edges } = allMarkdownRemark;
@@ -36,22 +36,47 @@ const Content = () => {
         <div className="content__box-desc">
           {description}
         </div>
-        <div className="content__box-hash">{hash}</div>
+        <div className="content__box-hash">{hash.map(x => `#${x} `)}</div>
       </div>
     )
   }
+  const getHashTagsFromPath = () => {
+    const params = location.search;
+    if(!params) return;
+    const hashTagParam = params.split('&').filter(x => /^\??hash_tag$/.test(x.split('=')[0]));
+    if(!hashTagParam.length) return;
+    const hashTags = hashTagParam[0].split('=');
+    if(!hashTags) return;
+    const encodedHashTags = decodeURI(hashTags[1]);
+    return encodedHashTags.split(' ');
+  }
+  const createHashTagsBox = (arr: string[]) => {
+    console.log(arr);
+    return arr.reduce((prev, cur) => prev + `<a href="./?hash_tag=${cur}" style="margin-right: 1rem">#${cur}</a>`, '');
+  }
+  const filtertedContent = () => {
+    return edges.map(x => createBox(x.node.frontmatter));
+  }
+  useEffect(() => {
+    setTimeout(() => {
+      const arr = getHashTagsFromPath();
+      const hashTitle = document.querySelector('.content__menu__hash');
+      hashTitle.innerHTML = createHashTagsBox(arr);
+
+    }, 500)
+  }, [])
   return (
     <div className="content">
       <div className="content__menu">
         <div className="content__menu__hash">
-          hash code 
+          
         </div>
         <div className="content__menu__dark-mode">
           <DarkModeToggler/>
         </div>
       </div>
       <div className="content__post-list">
-        {edges.map(x => createBox(x.node.frontmatter))}
+        {filtertedContent()}
       </div>
       <div className="content__nav">
         <div className="content__nav-prev">

@@ -1,5 +1,5 @@
 import React from 'react';
-import config from '../../config';
+import config, { LinkConfig } from '../../config';
 import { contact } from '../common/icons';
 import './side-bar.scss';
 
@@ -21,6 +21,35 @@ const SideBar = () => {
       </ul>
     );
   };
+  const linkIconRender = () => {
+    const iconKeys: (keyof LinkConfig)[] = [
+      'mail',
+      'github',
+      'linkedin',
+      'facebook',
+      'instagram',
+      'twitter',
+      'telegram',
+    ]
+    return iconKeys.map(x => (
+      <li className="contact__item">
+        {
+          config.link[x]?
+            (<a
+              className="contact__item__link"
+              href={x==='mail'?`mailto:${config.link[x]}`:config.link[x]}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {contact[x]}
+            </a>) :
+            ''
+        }
+        
+      </li>
+    ))
+    
+  }
   return (
     <div className="side-bar">
       <div className="container">
@@ -32,26 +61,7 @@ const SideBar = () => {
         <div className="menu">{menuRender()}</div>
         <div className="contact">
           <ul className="contact__list">
-            <li className="contact__item">
-              <a
-                className="contact__item__link"
-                href="https://www.facebook.com/#"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {contact.github}
-              </a>
-            </li>
-            <li className="contact__item">
-              <a
-                className="contact__item__link"
-                href="https://www.facebook.com/#"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {contact.linkedin}
-              </a>
-            </li>
+            {linkIconRender()}
           </ul>
         </div>
         <div className="reserved">© All rights reserved.</div>

@@ -1,8 +1,9 @@
-import React from 'react';
-import { ThemeToggler } from 'gatsby-plugin-dark-mode';
+import React, { useEffect } from 'react';
+import { ThemeToggler  } from 'gatsby-plugin-dark-mode';
 import './style.scss';
 
 const DarkModeToggler = () => {
+
   const onToggleTheme = ({e, toggleTheme}) => {
     toggleTheme(e.target.checked ? 'light' : 'dark');
   }
