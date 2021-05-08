@@ -54,7 +54,6 @@ jobs:
             npm install -g --silent gh-pages@2.0.1
             git config user.email $GIT_EMAIL
             git config user.name $GIT_NAME
-            echo $GIT_DEPLOY_KEY >> ~/.ssh/chalkeatingnerd_blog.deploy.pem 
       - run:
           name: Deploy gh-pages branch
           command: gh-pages --dist public
