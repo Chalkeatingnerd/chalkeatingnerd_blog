@@ -66,6 +66,3 @@ workflows:
       - build_and_push:
           requires:
             - unit_tests
-          filters:
-            branches:
-              only: main
