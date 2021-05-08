@@ -18,6 +18,7 @@
     "gatsby-source-filesystem": "^3.3.0",
     "gatsby-transformer-remark": "^4.0.0",
     "gatsby-transformer-sharp": "^3.2.0",
+    "gh-pages": "2.0.1",
     "postcss": "^8.2.10",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -39,7 +40,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo 'TODO: unitTest'"
+    "test": "echo 'TODO: unitTest'",
+    "gh-pages": "gh-pages --dist public"
   },
   "repository": {
     "type": "git",
