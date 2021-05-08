@@ -54,9 +54,7 @@ jobs:
             yarn global add gh-pages@2.0.1
             git config user.email $GIT_EMAIL
             git config user.name $GIT_NAME
-      - run:
-          name: Deploy gh-pages branch
-          command: gh-pages --dist public
+            gh-pages --dist public
 
 workflows:
   version: 2
