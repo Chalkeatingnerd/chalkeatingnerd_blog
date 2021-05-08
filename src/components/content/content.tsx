@@ -51,7 +51,7 @@ const Content = ({location}) => {
     return encodedHashTags.split(' ');
   }
   const createHashTagsBox = (arr: string[]) => {
-    console.log(arr);
+    if(!arr) return;
     return arr.reduce((prev, cur) => prev + `<a href="./?hash_tag=${cur}" style="margin-right: 1rem">#${cur}</a>`, '');
   }
   const filtertedContent = () => {
@@ -60,9 +60,9 @@ const Content = ({location}) => {
   useEffect(() => {
     setTimeout(() => {
       const arr = getHashTagsFromPath();
+      if(!arr || !arr.length) return;
       const hashTitle = document.querySelector('.content__menu__hash');
       hashTitle.innerHTML = createHashTagsBox(arr);
-
     }, 500)
   }, [])
   return (
@@ -78,7 +78,8 @@ const Content = ({location}) => {
       <div className="content__post-list">
         {filtertedContent()}
       </div>
-      <div className="content__nav">
+      {/* TODO: Paging */}
+      {/* <div className="content__nav">
         <div className="content__nav-prev">
           <div className="content__nav-button">
             {'< previous'}
@@ -89,7 +90,7 @@ const Content = ({location}) => {
             {'next >'}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
