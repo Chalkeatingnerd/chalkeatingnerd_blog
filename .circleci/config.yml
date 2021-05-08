@@ -54,7 +54,7 @@ jobs:
             yarn global add gh-pages@2.0.1
             git config user.email $GIT_EMAIL
             git config user.name $GIT_NAME
-            gh-pages --dist public
+            yarn gh-pages
 
 workflows:
   version: 2
